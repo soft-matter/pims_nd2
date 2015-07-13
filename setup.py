@@ -10,7 +10,7 @@ setup_parameters = dict(
     name="PIMS_ND2",
     description="ND2SDK wrapper for PIMS",
     author="Casper van der Wel",
-    install_requires=['pims'],
+    install_requires=['pims>=0.3'],
     author_email="caspervdw@gmail.com",
     url="https://github.com/caspervdw/pims_nd2",
     packages=['pims_nd2'],
