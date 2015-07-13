@@ -1,0 +1,48 @@
+Terms of Use
+
+This Terms of Use applies to the website at http://www.nd2sdk.com. This site is owned and operated by Laboratory Imaging, spol. s r.o. and should not be confused with any other website whether or not the word Laboratory Imaging, spol. s r.o. appears as part of the domain name or branding. You are advised to check each page you visit on or from this site to determine whether you have moved onto a third party site.
+1. Site Security
+
+You are prohibited from violating, or attempting to violate, the security of this site. Any such violations may result in criminal and/or civil penalties against you
+2. Copyright
+
+The material made available at this site is protected by copyright. Material from this site may be used, copied and reproduced. You may distribute ND2SDK implemented in your application without written permission of the copyright owner. You may not sell or provide ND2SDK to 3rd party , but you may inform 3rd party about the possibility to get ND2SDK at www.nd2sdk.com. Modification of the source code or its use for any other purpose is a violation of Laboratory Imaging, spol. s r.o.'s copyright and other proprietary rights. Permission for all commercial use of ND2SDK contained herein, including multiple reproducing and distributing multiple copies, or linking to any page at this site except the "home page" (www.nd2sdk.com), is not granted by Laboratory Imaging, spol. s r.o. For purposes of this Agreement, the use of ND2SDK on any other website or networked computer environment is prohibited. All design rights, databases and compilation and other intellectual property rights, in each case whether registered or unregistered, and related goodwill are proprietary to Laboratory Imaging, spol. s r.o..
+3. Trademarks
+
+All trademarks, service marks, logos and trade names, whether registered or unregistered, are proprietary to Laboratory Imaging, spol. s r.o. or to other companies where so indicated. You may not reproduce, download or otherwise use any such trademarks, service marks, logos or trade names without the prior written consent of the appropriate owner thereof.
+4. Termination
+
+This agreement is effective until terminated by either party. You may terminate this agreement at any time by destroying all materials obtained from this site and all related documentation and all copies and installations thereof, whether made under the terms of this agreement or otherwise. This agreement will terminate immediately without notice from Laboratory Imaging, spol. s r.o. if in Laboratory Imaging, spol. s r.o.'s sole discretion you fail to comply with any term or provision of this agreement. Upon termination, you must destroy all materials obtained from this site and all copies thereof, whether made under the terms of this agreement or otherwise. The provisions of this Terms of Use Statement concerning site security, prohibited activity, copyrights, trademarks, user submissions, disclaimer, limitation of liability, indemnity, governing law and jurisdiction shall survive any termination of this agreement.
+5. Disclaimer
+
+The materials in this site are provided "as is" and without warranties of any kind either express or implied. To the fullest extent permissible pursuant to applicable law, Laboratory Imaging, spol. s r.o. disclaims all warranties, express or implied, including, but not limited to, implied warranties of merchantability and fitness for a particular purpose. Laboratory Imaging, spol. s r.o. does not warrant that the functions contained in the materials will be uninterrupted or error-free, that defects will be corrected, or that this site or the server that makes it available are free of viruses or other harmful components. Laboratory Imaging, spol. s r.o. does not make any representations or warranties regarding the use or the results of the use of the materials in this site in terms of their correctness, accuracy, reliability, or otherwise. Applicable law may not allow the exclusion of implied warranties, so the above exclusion may not apply to you.
+6. Limitation of Liability
+
+To the extent permitted under applicable law, under no circumstances, including, but not limited to, negligence, shall Laboratory Imaging, spol. s r.o. be liable for any compensatory, punitive, special or consequential damages that result from the use of, or the inability to use, the materials in this site, even if Laboratory Imaging, spol. s r.o. or a Laboratory Imaging, spol. s r.o. authorized representative has been advised of the possibility of such damages. Applicable law may not allow the limitation or exclusion of liability or incidental or consequential damages, and so to that extent the above limitation or exclusion may not apply to you. In no event shall Laboratory Imaging, spol. s r.o.'s total liability to you for all damages, losses, and causes of action (whether in contract, tort (including, but not limited to, negligence) or otherwise) exceed the amount paid by you to Laboratory Imaging, spol. s r.o., if any, for using this site.
+7. Indemnity
+
+You agree to indemnify, defend and hold Laboratory Imaging, spol. s r.o., its affiliates and any of its and their directors, employees, agents and contractors harmless from and against any and all claims, damages, losses, costs (including without limitation reasonable attorneys' fees) or other expenses that arise directly or indirectly out of or from your breach of this agreement; and/or your activities in connection with this site. Laboratory Imaging, spol. s r.o. 
+
+Additional or different terms, conditions, and notices may apply to specific materials, information, products, software, and services offered through this Web site. In the event of any conflict, such additional or different terms, conditions, and notices will prevail over these Terms of Use. 
+
+Notification emails with the important news will be send to the email address used for registration on this website.
+ 
+
+
+Company legal seat:
+Laboratory Imaging, spol. s r.o.
+Na Pasece 201/3
+160 00  Prague 6
+Czech Republic
+
+Subsidiary (correspondence, deliveries): 
+Laboratory Imaging, spol. s r.o.
+Za Drahou 171/17
+102 00 Prague 10
+Czech Republic
+Org. no.: 14890925
+VAT no: CZ14890925
+DUNS: 495143653
+Tel: (+420) 272 081 400
+Fax: (+420) 271 732 657
+http://www.lim.cz
