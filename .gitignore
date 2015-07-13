@@ -29,7 +29,6 @@ pip-log.txt
 *.pro
 *.log
 *.pyc
-*.so
 *~
 *.swp
 
