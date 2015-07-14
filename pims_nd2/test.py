@@ -120,7 +120,7 @@ class _image_multichannel(unittest.TestCase):
         assert_equal(self.v.sizes['c'], self.expected_C)
 
 
-class TestBioformatsND2(_image_series, _image_stack, _image_multichannel):
+class TestND2(_image_series, _image_stack, _image_multichannel):
     # Nikon NIS-Elements ND2
     # 38 x 31 pixels, 16 bits, 2 channels, 3 time points, 10 focal planes
     def setUp(self):
