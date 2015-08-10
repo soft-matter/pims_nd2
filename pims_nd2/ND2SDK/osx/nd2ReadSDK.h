@@ -19,7 +19,7 @@
 #if _WIN32
 #define DLLIMPORT __declspec(dllimport)
 #else
-#define DLLIMPORT 
+#define DLLIMPORT
 #endif 
 
 #define LIMFILEAPI EXTERN DLLIMPORT
@@ -132,7 +132,7 @@ typedef struct _LIMTEXTINFO
    LIMWCHAR wszInfo1[256];
    LIMWCHAR wszInfo2[256];
    LIMWCHAR wszOptics[256];
-
+   LIMWCHAR wszAppVersion[256];
 } LIMTEXTINFO;
 
 
@@ -165,7 +165,8 @@ typedef struct _LIMLOCALMETADATA
 
 } LIMLOCALMETADATA;
 
-#endif _G5_API_EXTERNAL_H
+//_G5_API_EXTERNAL_H
+#endif
 
 
 typedef int LIMFILEHANDLE;
@@ -216,11 +217,21 @@ LIMFILEAPI void            Lim_DestroyPicture(LIMPICTURE* pPicture);
 LIMFILEAPI LIMUINT         Lim_GetSeqIndexFromCoords(LIMEXPERIMENT* pExperiment, LIMUINT* pExpCoords);
 LIMFILEAPI void            Lim_GetCoordsFromSeqIndex(LIMEXPERIMENT* pExperiment, LIMUINT uiSeqIdx, LIMUINT* pExpCoords);
 LIMFILEAPI LIMRESULT       Lim_GetMultipointName(LIMFILEHANDLE hFile, LIMUINT uiPointIdx, LIMWSTR wstrPointName);
+LIMFILEAPI LIMINT          Lim_GetZStackHome(LIMFILEHANDLE hFile);
 LIMFILEAPI LIMRESULT       Lim_GetLargeImageDimensions(LIMFILEHANDLE hFile, LIMUINT* puiXFields, LIMUINT* puiYFields, double* pdOverlap);
 
 LIMFILEAPI LIMRESULT       Lim_GetRecordedDataInt(LIMFILEHANDLE hFile, LIMCWSTR wszName, LIMINT uiSeqIndex, LIMINT *piData);
 LIMFILEAPI LIMRESULT       Lim_GetRecordedDataDouble(LIMFILEHANDLE hFile, LIMCWSTR wszName, LIMINT uiSeqIndex, double* pdData);
 LIMFILEAPI LIMRESULT       Lim_GetRecordedDataString(LIMFILEHANDLE hFile, LIMCWSTR wszName, LIMINT uiSeqIndex, LIMWSTR wszData);
 LIMFILEAPI LIMRESULT       Lim_GetNextUserEvent(LIMFILEHANDLE hFile, LIMUINT *puiNextID, LIMFILEUSEREVENT* pEventInfo);
+
+LIMFILEAPI LIMINT          Lim_GetCustomDataCount(LIMFILEHANDLE hFile);
+LIMFILEAPI LIMRESULT       Lim_GetCustomDataInfo(LIMFILEHANDLE hFile, LIMINT uiCustomDataIndex, LIMWSTR wszName, LIMWSTR wszDescription, LIMINT *piType, LIMINT *piFlags);
+LIMFILEAPI LIMRESULT       Lim_GetCustomDataDouble(LIMFILEHANDLE hFile, LIMINT uiCustomDataIndex, double* pdData);
+LIMFILEAPI LIMRESULT       Lim_GetCustomDataString(LIMFILEHANDLE hFile, LIMINT uiCustomDataIndex, LIMWSTR wszData, LIMINT *piLength);
+
+LIMFILEAPI LIMRESULT       Lim_GetStageCoordinates(LIMFILEHANDLE hFile, LIMUINT uiPosCount, LIMUINT* puiSeqIdx, LIMUINT* puiXPos, LIMUINT* puiYPos, double* pdXPos, double *pdYPos, double *pdZPos, LIMINT iUseAlignment);
+LIMFILEAPI LIMRESULT       Lim_SetStageAlignment(LIMFILEHANDLE hFile, LIMUINT uiPosCount, double* pdXSrc, double* pdYSrc, double* pdXDst, double *pdYDst);
+LIMFILEAPI LIMRESULT       Lim_GetAlignmentPoints(LIMFILEHANDLE hFile, LIMUINT* puiPosCount, LIMUINT* puiSeqIdx, LIMUINT* puiXPos, LIMUINT* puiYPos, double *pdXPos, double *pdYPos);
 
 #endif // __ND2READSDK_H__

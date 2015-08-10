@@ -4,17 +4,17 @@ ND2 Read SDK
 1) Content of this package
 --------------------------
  ReadMe.txt           - This file
- doc                  - documentation folder. Open doc/index.html in web browser
- bin				  - Windows dlls and example executables for 32 and 64 bit system
+ doc                  - documentation folder
+ bin                  - Windows dlls and example executables for 32 and 64 bit system
  src                  - sources of example projects
- lib			      - import library
- include	          - Header file defining SDK interface. Required for linking with ND2 SDK framework
+ lib                  - import library
+ include              - Header file defining SDK interface. Required for linking with ND2 SDK framework
 
 
 2) Examples
 ------------------------------
- ND2ReadSDK_simple    - simple application displaying image and additional text info available for 32 a 64 bit system
- ND2ReadSDK_QT        - complex application with QT GUI using the most of the SDK features available for 32 bit system only
+ ND2ReadSDK_simple    - simple application displaying image and additional text info available for 32 and 64 bit system
+ ND2ReadSDK_QT        - complex application with QT GUI using the most of the SDK features available for 32 and 64 bit system
 
 3) Running examples
 ------------------------------
@@ -23,8 +23,16 @@ ND2 Read SDK
 3) Building examples from source
 -------------------------------
  Open ND2ReadSDK_simple.sln or ND2ReadSDK_QT.sln from appropriate subfolder in the 'src' folder using MS Visual studio 2008 or higher.
- Choose the platform (32/64bit) and build the solution as usual. If you do not use QT library for GUI, it is not necessary to include QT binaries (QtCore4.dll, QtGui4.dll) into your project.
+ Choose the platform (32/64bit) and build the solution as usual. If you do not use QT library for GUI, it is not necessary to include these QT binaries into your project:
+ SDK\bin\x64\Qt5Core.dll 
+ SDK\bin\x64\Qt5Gui.dll 
+ SDK\bin\x64\Qt5Widgets.dll 
+ SDK\bin\x64\platforms 
+ SDK\lib\x64\Qt5Core.lib 
+ SDK\lib\x64\Qt5Gui.lib 
+ SDK\lib\x64\Qt5Widgets.lib 
+ SDK\lib\x64\qtmain.lib)
 
 -------------------------------
 
-If you have any question, do not hesitate and contact us at nd2sdk-owners@nd2sdk.com.
+If you have any question, do not hesitate and contact us at techsupp@lim.cz
