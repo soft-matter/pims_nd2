@@ -5,6 +5,7 @@ import numpy as np
 from pims import Frame, FramesSequenceND
 import os
 from . import ND2SDK as h
+from ctypes import c_uint8, c_uint16, c_float
 
 
 class ND2_Reader(FramesSequenceND):
@@ -100,6 +101,9 @@ class ND2_Reader(FramesSequenceND):
             self._pixel_type = {8: np.uint8,
                                 16: np.uint16,
                                 32: np.float32}[self._pixel_size]
+            self._pixel_type_C = {8: c_uint8,
+                                  16: c_uint16,
+                                  32: c_float}[self._pixel_size]
             self.max_value = 2**attr.uiBpcSignificant - 1
             self._lim_attributes = attr
 
@@ -140,6 +144,9 @@ class ND2_Reader(FramesSequenceND):
                                                  attr.uiHeight,
                                                  self._pixel_size,
                                                  attr.uiComp)
+            arr_size = attr.uiWidth * attr.uiHeight * attr.uiComp
+            arr = self._pixel_type_C * arr_size
+            self._buf_p_a = arr.from_address(self._buf_p.pImageData)
             self._buf_md = h.LIMLOCALMETADATA()
 
             if 'z' in self.axes:
@@ -174,14 +181,14 @@ class ND2_Reader(FramesSequenceND):
                                                     int(_coords['m']),
                                                     int(_coords['z']),
                                                     int(_coords['o'])))
+
         h.Lim_FileGetImageData(self._handle, i, self._buf_p, self._buf_md)
-        data = self._buf_p.pImageData
-        size = self._buf_p.uiSize
-        im = np.frombuffer(np.core.multiarray.int_asbuffer(data, size),
-                           dtype=self.pixel_type)
-        im.shape = self._lim_frame_shape
+        im = np.ndarray(self._lim_frame_shape, self.pixel_type,
+                        self._buf_p_a).copy()
+
         if im.ndim == 3:
             im = im[:, :, _coords['c']]
+
         metadata = {'x_um': self._buf_md.dXPos,
                     'y_um': self._buf_md.dYPos,
                     'z_um': self._buf_md.dZPos,

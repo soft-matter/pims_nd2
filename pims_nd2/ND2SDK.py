@@ -1,11 +1,7 @@
 from ctypes import (c_int, c_wchar, c_wchar_p, c_uint, c_size_t, c_void_p,
                     c_double, cdll, Structure, sizeof, POINTER)
 import os
-import sys
 from datetime import datetime
-
-if sys.version_info.major != 2:
-    raise OSError("Only python 2 is supported.")
 
 if os.name != 'nt':
     raise OSError("Unsupported OS. The SDK for OSX and linux are included, "
