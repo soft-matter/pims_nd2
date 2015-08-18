@@ -2,7 +2,7 @@ pims_nd2
 ========
 
 This package lets [pims](https://github.com/soft-matter/pims) interface with the [ND2SDK](http://www.nd2sdk.com) for fast reading of Nikon *.nd2 files.
-Currently, this is only implemented for Windows and Python 2.7.
+Currently, this is only implemented for Windows.
 
 SDKs for Linux and OSX are already included, these are probably easy to implement.
 
