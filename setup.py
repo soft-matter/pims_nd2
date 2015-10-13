@@ -7,13 +7,14 @@ def read(fname):
 
 
 setup_parameters = dict(
-    name="PIMS_ND2",
+    name="pims_nd2",
     version="0.1",
     description="ND2SDK wrapper for PIMS",
     author="Casper van der Wel",
     install_requires=['pims>=0.3'],
     author_email="caspervdw@gmail.com",
     url="https://github.com/soft-matter/pims_nd2",
+    download_url="https://github.com/soft-matter/pims_nd2/tarball/0.1",
     packages=['pims_nd2'],
     include_package_data=True,
     platforms=[

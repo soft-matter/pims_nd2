@@ -33,3 +33,5 @@ pip-log.txt
 *.swp
 
 MANIFEST
+
+.idea
