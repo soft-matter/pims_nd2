@@ -7,6 +7,8 @@ from datetime import datetime
 if platform == "linux" or platform == "linux2":
     nd2 = cdll.LoadLibrary(os.path.join(os.path.dirname(__file__), 'ND2SDK',
                                         'linux', 'libnd2ReadSDK.so'))
+    def jdn_to_datetime(jdn):
+        return datetime.fromtimestamp(jdn)
 elif platform == "darwin":
    raise OSError("Unsupported OS. The ND2SDK for OSX is included, "
                  "please try to implement!")
@@ -20,6 +22,9 @@ elif platform == "win32":
        raise OSError("The bitsize does not equal 32 or 64.")
     os.environ["PATH"] += os.pathsep + os.path.join(dlldir)
     nd2 = cdll.LoadLibrary('v6_w32_nd2ReadSDK.dll')
+
+    def jdn_to_datetime(jdn):
+        return datetime.fromtimestamp((jdn - 2440587.5) * 86400.)
 
 
 LIMFILEHANDLE = c_int
@@ -67,10 +72,6 @@ LIM_ERR = {0:  'LIM_OK',
 
 image_type = {0: 'normal', 1: 'spectral'}
 compression_type = {0: 'lossless', 1: 'lossy', 2: None}
-
-
-def jdn_to_datetime(jdn):
-    return(datetime.fromtimestamp((jdn - 2440587.5) * 86400.))
 
 
 def rgb_int_to_float_tuple(rgb):
