@@ -21,7 +21,7 @@ setup_parameters = dict(
 #        'Operating System :: MacOS :: MacOS X',
         'Operating System :: Microsoft :: Windows :: Windows 7',
         'Operating System :: Microsoft :: Windows :: Windows Vista',
-#        'Operating System :: POSIX :: Linux',
+        'Operating System :: POSIX :: Linux',
     ],
     long_description=read('README.md'))
 
