@@ -21,7 +21,7 @@ def assert_image_equal(actual, expected):
         assert_allclose(actual, expected, atol=1/256.)
 
 
-class _image_single(unittest.TestCase):
+class _image_single(object):
     def check_skip(self):
         pass
 
@@ -88,7 +88,7 @@ class _image_series(_image_single):
         list(self.v[[0, -1]])
 
 
-class _image_stack(unittest.TestCase):
+class _image_stack(object):
     def check_skip(self):
         pass
 
@@ -101,7 +101,7 @@ class _image_stack(unittest.TestCase):
         assert_equal(self.v.sizes['z'], self.expected_Z)
 
 
-class _image_multichannel(unittest.TestCase):
+class _image_multichannel(object):
     def check_skip(self):
         pass
 
@@ -120,7 +120,8 @@ class _image_multichannel(unittest.TestCase):
         assert_equal(self.v.sizes['c'], self.expected_C)
 
 
-class TestND2(_image_series, _image_stack, _image_multichannel):
+class TestND2(_image_series, _image_stack, _image_multichannel,
+              unittest.TestCase):
     # Nikon NIS-Elements ND2
     # 38 x 31 pixels, 16 bits, 2 channels, 3 time points, 10 focal planes
     def setUp(self):
