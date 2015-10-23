@@ -278,3 +278,7 @@ Lim_GetNextUserEvent = nd2.Lim_GetNextUserEvent
 Lim_GetNextUserEvent.argtypes = [LIMFILEHANDLE, POINTER(LIMUINT),
                                  POINTER(LIMFILEUSEREVENT)]
 Lim_GetNextUserEvent.restype = LIMRESULT
+
+Lim_GetZStackHome = nd2.Lim_GetZStackHome
+Lim_GetZStackHome.argtypes = [LIMFILEHANDLE]
+Lim_GetZStackHome.restype = LIMINT

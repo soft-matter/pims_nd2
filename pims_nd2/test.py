@@ -135,6 +135,7 @@ class TestND2(_image_series, _image_stack, _image_multichannel):
 
     def test_metadata(self):
         assert_equal(self.v.metadata['plane_count'], 2)
+        assert_equal(self.v.metadata['z_home'], 4)
         assert_equal(self.v.metadata['plane_0']['name'], '5-FAM/pH 9.0')
         assert_almost_equal(self.v.calibration, 0.167808983)
         assert_allclose(self.v.colors[0], [0.47, 0.91, 0.06], atol=0.01)

@@ -110,6 +110,7 @@ class ND2_Reader(FramesSequenceND):
             # obtain extra dimension sizes
             dims = h.LIMEXPERIMENT()
             h.Lim_FileGetExperiment(handle, dims)
+            self._z_home = None
             for i in range(dims.uiLevelCount):
                 dim = dims.pAllocatedLevels[i]
                 dimtype = h.LIMLOOP[dim.uiExpType]
@@ -121,6 +122,7 @@ class ND2_Reader(FramesSequenceND):
                 elif dimtype == 'LIMLOOP_Z':
                     self._init_axis('z', dim.uiLoopSize)
                     self.calibrationZ = dim.dInterval
+                    self._z_home = h.Lim_GetZStackHome(self._handle)
                 elif dimtype == 'LIMLOOP_OTHER':
                     self._init_axis('o', dim.uiLoopSize)
             self._lim_experiment = dims
@@ -230,7 +232,9 @@ class ND2_Reader(FramesSequenceND):
                     'pinhole': bufmd.dPinholeRadius,
                     'zoom': bufmd.dZoom,
                     'projective_mag': bufmd.dProjectiveMag,
-                    'image_type': h.image_type[bufmd.uiImageType]}
+                    'image_type': h.image_type[bufmd.uiImageType],
+
+                    'z_home': self._z_home}
         for i in range(bufmd.uiPlaneCount):
             plane = bufmd.pPlanes[i]
             metadata['plane_{}'.format(i)] = {'components': plane.uiCompCount,
@@ -238,6 +242,7 @@ class ND2_Reader(FramesSequenceND):
                                               'name': plane.wszName,
                                               'oc': plane.wszOCName,
                                               'emission_nm': plane.dEmissionWL}
+
         return metadata
 
     @property
