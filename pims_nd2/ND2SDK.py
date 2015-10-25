@@ -8,7 +8,7 @@ if platform == "linux" or platform == "linux2":
     nd2 = cdll.LoadLibrary(os.path.join(os.path.dirname(__file__), 'ND2SDK',
                                         'linux', 'libnd2ReadSDK.so'))
     def jdn_to_datetime(jdn):
-        return datetime.fromtimestamp(jdn)
+        return None  # ND2SDK gives no timestamp on linux
 elif platform == "darwin":
    raise OSError("Unsupported OS. The ND2SDK for OSX is included, "
                  "please try to implement!")
