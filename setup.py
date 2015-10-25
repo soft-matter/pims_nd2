@@ -8,7 +8,7 @@ def read(fname):
 
 setup_parameters = dict(
     name="pims_nd2",
-    version="0.1",
+    version="0.2",
     description="ND2SDK wrapper for PIMS",
     author="Casper van der Wel",
     install_requires=['pims>=0.3'],
