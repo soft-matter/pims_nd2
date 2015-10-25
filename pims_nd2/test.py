@@ -2,6 +2,7 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 import six
 import os
+from sys import platform
 import unittest
 import nose
 import numpy as np
@@ -21,7 +22,7 @@ def assert_image_equal(actual, expected):
         assert_allclose(actual, expected, atol=1/256.)
 
 
-class _image_single(unittest.TestCase):
+class _image_single(object):
     def check_skip(self):
         pass
 
@@ -88,7 +89,7 @@ class _image_series(_image_single):
         list(self.v[[0, -1]])
 
 
-class _image_stack(unittest.TestCase):
+class _image_stack(object):
     def check_skip(self):
         pass
 
@@ -101,7 +102,7 @@ class _image_stack(unittest.TestCase):
         assert_equal(self.v.sizes['z'], self.expected_Z)
 
 
-class _image_multichannel(unittest.TestCase):
+class _image_multichannel(object):
     def check_skip(self):
         pass
 
@@ -120,7 +121,8 @@ class _image_multichannel(unittest.TestCase):
         assert_equal(self.v.sizes['c'], self.expected_C)
 
 
-class TestND2(_image_series, _image_stack, _image_multichannel):
+class TestND2(_image_series, _image_stack, _image_multichannel,
+              unittest.TestCase):
     # Nikon NIS-Elements ND2
     # 38 x 31 pixels, 16 bits, 2 channels, 3 time points, 10 focal planes
     def setUp(self):
@@ -139,6 +141,14 @@ class TestND2(_image_series, _image_stack, _image_multichannel):
         assert_equal(self.v.metadata['plane_0']['name'], '5-FAM/pH 9.0')
         assert_almost_equal(self.v.calibration, 0.167808983)
         assert_allclose(self.v.colors[0], [0.47, 0.91, 0.06], atol=0.01)
+
+    def test_time(self):
+        if platform == 'linux' or platform == 'linux2':
+            raise nose.SkipTest('time_start not supported on linux. Skipping.')
+        time = self.v.metadata['time_start']
+        assert_equal((time.year, time.month, time.day, time.hour, time.minute,
+                      time.second, time.microsecond),
+                     (2014, 6, 18, 15, 55, 23, 392018))
 
     def test_metadata_framewise(self):
         self.v.bundle_axes = 'yx'
