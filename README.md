@@ -2,14 +2,13 @@ pims_nd2
 ========
 
 This package lets [pims](https://github.com/soft-matter/pims) interface with the [ND2SDK](http://www.nd2sdk.com) for fast reading of Nikon *.nd2 files.
-Currently, this is only implemented for Windows.
 
-SDKs for Linux and OSX are already included, these are probably easy to implement.
+This is implemented on Windows and Linux systems. An SDK for OSX is already included, this is probably easy to implement.
 
 Dependencies
 ------------
 
-This reader is based on `pims.FramesSequenceND`, which is available from version 0.3.0. Apart from [pims](https://github.com/soft-matter/pims) there are no extra dependencies. The required c libraries are included and will be added to the PATH variable at runtime. 
+This reader is based on `pims.FramesSequenceND`, which is available from version 0.3. Apart from [pims](https://github.com/soft-matter/pims) there are no extra dependencies. The required c libraries are included and will be added to the PATH variable at runtime.
 
 Examples
 --------
