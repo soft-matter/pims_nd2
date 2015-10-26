@@ -2,7 +2,8 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
 import numpy as np
-from pims import Frame, FramesSequenceND
+from pims.frame import Frame
+from pims.base_frames import FramesSequenceND
 import os
 from . import ND2SDK as h
 from ctypes import c_uint8, c_uint16, c_float
