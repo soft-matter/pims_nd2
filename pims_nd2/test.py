@@ -146,7 +146,6 @@ class TestND2(_image_series, _image_stack, _image_multichannel,
         time = self.v.metadata['time_start_utc']
         assert_equal((time.year, time.month, time.day, time.hour, time.minute,
                       time.second), (2014, 6, 18, 13, 55, 23))
-        assert_almost_equal(time.microsecond, 392018, atol=1)
 
     def test_metadata_framewise(self):
         self.v.bundle_axes = 'yx'
