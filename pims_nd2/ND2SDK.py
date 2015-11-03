@@ -7,8 +7,6 @@ from datetime import datetime
 if platform == "linux" or platform == "linux2":
     nd2 = cdll.LoadLibrary(os.path.join(os.path.dirname(__file__), 'ND2SDK',
                                         'linux', 'libnd2ReadSDK.so'))
-    def jdn_to_datetime(jdn):
-        return None  # ND2SDK gives no timestamp on linux
 elif platform == "darwin":
    raise OSError("Unsupported OS. The ND2SDK for OSX is included, "
                  "please try to implement!")
@@ -23,8 +21,9 @@ elif platform == "win32":
     os.environ["PATH"] += os.pathsep + os.path.join(dlldir)
     nd2 = cdll.LoadLibrary('v6_w32_nd2ReadSDK.dll')
 
-    def jdn_to_datetime(jdn):
-        return datetime.fromtimestamp((jdn - 2440587.5) * 86400.)
+
+def jdn_to_datetime(jdn):
+    return datetime.fromtimestamp((jdn - 2440587.5) * 86400.)
 
 
 LIMFILEHANDLE = c_int

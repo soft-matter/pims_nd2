@@ -143,8 +143,6 @@ class TestND2(_image_series, _image_stack, _image_multichannel,
         assert_allclose(self.v.colors[0], [0.47, 0.91, 0.06], atol=0.01)
 
     def test_time(self):
-        if platform == 'linux' or platform == 'linux2':
-            raise nose.SkipTest('time_start not supported on linux. Skipping.')
         time = self.v.metadata['time_start']
         assert_equal((time.year, time.month, time.day, time.hour, time.minute,
                       time.second, time.microsecond),
