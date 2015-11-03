@@ -22,8 +22,12 @@ elif platform == "win32":
     nd2 = cdll.LoadLibrary('v6_w32_nd2ReadSDK.dll')
 
 
-def jdn_to_datetime(jdn):
+def jdn_to_datetime_local(jdn):
     return datetime.fromtimestamp((jdn - 2440587.5) * 86400.)
+
+
+def jdn_to_datetime_utc(jdn):
+    return datetime.utcfromtimestamp((jdn - 2440587.5) * 86400.)
 
 
 LIMFILEHANDLE = c_int
