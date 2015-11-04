@@ -3,21 +3,27 @@ from ctypes import (c_int, c_wchar, c_wchar_p, c_uint, c_size_t, c_void_p,
 import os
 from datetime import datetime
 
-if os.name != 'nt':
-    raise OSError("Unsupported OS. The SDK for OSX and linux are included, "
-                  "please try implementing them!")
+if os.uname()[0] != 'Darwin':
+    if os.name != 'nt':
+        raise OSError("Unsupported OS. The SDK for OSX and linux are included, "
+                      "please try implementing them!")
 
-bitsize = sizeof(c_void_p) * 8
+    bitsize = sizeof(c_void_p) * 8
 
-if bitsize == 32:
-    dlldir = os.path.join(os.path.dirname(__file__), 'ND2SDK', 'win', 'x86')
-elif bitsize == 64:
-    dlldir = os.path.join(os.path.dirname(__file__), 'ND2SDK', 'win', 'x64')
+    if bitsize == 32:
+        dlldir = os.path.join(os.path.dirname(__file__), 'ND2SDK', 'win', 'x86')
+        dllname = "v6_w32_nd2ReadSDK.dll"
+    elif bitsize == 64:
+        dlldir = os.path.join(os.path.dirname(__file__), 'ND2SDK', 'win', 'x64')
+        dllname = "v6_w32_nd2ReadSDK.dll"
+    else:
+        raise OSError("The bitsize does not equal 32 or 64.")
 else:
-    raise OSError("The bitsize does not equal 32 or 64.")
+    dlldir = os.path.join(os.path.dirname(__file__), 'ND2SDK', 'osx', 'nd2sdk.framework')
+    dllname = "nd2sdk"
 
 os.environ["PATH"] += ';' + os.path.join(dlldir)
-nd2 = cdll.LoadLibrary('v6_w32_nd2ReadSDK.dll')
+nd2 = cdll.LoadLibrary(os.path.join(dlldir) + "/" + dllname)
 
 
 LIMFILEHANDLE = c_int
