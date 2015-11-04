@@ -32,4 +32,4 @@ Metadata access can be done on two levels: reader level and frame level.
 
 Supporting Grant
 ----------------
-This reader was developed by Casper van der Wel, as part of his PhD thesis work in Daniela Kraft’s group at the Huygens-Kamerlingh-Onnes laboratory, Institute of Physics, Leiden University, The Netherlands. This work was supported by the Netherlands Organisation for Scientific Research (NWO/OCW).
+This reader was developed by Casper van der Wel, as part of his PhD thesis work in Daniela Kraft's group at the Huygens-Kamerlingh-Onnes laboratory, Institute of Physics, Leiden University, The Netherlands. This work was supported by the Netherlands Organisation for Scientific Research (NWO/OCW).
