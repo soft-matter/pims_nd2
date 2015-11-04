@@ -24,12 +24,18 @@ setup_parameters = dict(
     download_url="https://github.com/soft-matter/pims_nd2/tarball/0.4",
     packages=['pims_nd2'],
     include_package_data=True,
-    platforms=[
-        'Operating System :: MacOS :: MacOS X',
-        'Operating System :: Microsoft :: Windows :: Windows 7',
-        'Operating System :: Microsoft :: Windows :: Windows Vista',
-        'Operating System :: POSIX :: Linux',
-    ],
+    classifiers=["Development Status :: 4 - Beta",
+                 "Intended Audience :: Science/Research",
+                 "Programming Language :: C",
+                 "Programming Language :: Python",
+                 "Programming Language :: Python :: 2",
+                 "Programming Language :: Python :: 3",
+                 "Topic :: Scientific/Engineering",
+                 "Operating System :: Microsoft :: Windows",
+                 "Operating System :: POSIX",
+                 "Operating System :: Unix",
+                 "Operating System :: MacOS"],
+    platforms=['MacOS X', 'Windows', 'Linux CentOs 6.5/7', 'Linux Debian 7/8'],
     long_description=descr)
 
 setup(**setup_parameters)
