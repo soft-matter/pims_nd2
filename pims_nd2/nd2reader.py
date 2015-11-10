@@ -224,6 +224,7 @@ class ND2_Reader(FramesSequenceND):
                     'plane_count': bufmd.uiPlaneCount,
                     'angle': bufmd.dAngle,
                     'calibration_um': bufmd.dCalibration,
+                    'time_start_jdn': bufmd.dTimeStart,
                     'time_start': h.jdn_to_datetime_local(bufmd.dTimeStart),
                     'time_start_utc': h.jdn_to_datetime_utc(bufmd.dTimeStart),
                     'objective': bufmd.wszObjectiveName,
