@@ -3,7 +3,7 @@ pims_nd2
 
 This package lets [pims](https://github.com/soft-matter/pims) interface with the [ND2SDK](http://www.nd2sdk.com) for fast reading of Nikon *.nd2 files.
 
-This is implemented on Windows and Linux systems. An SDK for OSX is already included, this is probably easy to implement.
+This is implemented on Windows, Linux and OSX systems.
 
 Dependencies
 ------------
@@ -28,7 +28,7 @@ The best way to use the reader is using a context manager. If you do not use a c
 Metadata access can be done on two levels: reader level and frame level.
 
 	frames.metadata['mpp']  # calibration in microns per pixel
-	frames[0].metadata['t_ms']  # timestamp of image in milliseconds
+	frames[0].metadata['t_ms']  # time of frame in milliseconds
 
 Supporting Grant
 ----------------
