@@ -8,8 +8,9 @@ if platform == "linux" or platform == "linux2":
     nd2 = cdll.LoadLibrary(os.path.join(os.path.dirname(__file__), 'ND2SDK',
                                         'linux', 'libnd2ReadSDK.so'))
 elif platform == "darwin":
-   raise OSError("Unsupported OS. The ND2SDK for OSX is included, "
-                 "please try to implement!")
+    nd2 = cdll.LoadLibrary(os.path.join(os.path.dirname(__file__), 'ND2SDK',
+                                        'osx', 'nd2sdk.framework', 'Versions',
+                                        '1', 'nd2sdk'))
 elif platform == "win32":
     bitsize = sizeof(c_void_p) * 8
     if bitsize == 32:
