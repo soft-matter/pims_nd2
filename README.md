@@ -21,13 +21,13 @@ This reader is based on `pims.FramesSequenceND`, which is available from pims ve
 Examples
 --------
 
-The following code opens a movie file and displays a frame:
+The following code opens a movie file and displays a frame. Frames are only actually read when necessary.
 
     from pims import ND2_Reader
     frames = ND2_Reader('some_movie.nd2')
     frames[82]  # display frame 82
 
-The following code opens the multidimensional demo file included in the package and iterates through the first 3 frames. Note in the first lines, we tell the reader which axis to iterate over and which axed to include in one frame. Also we select the first channel for reading. Frames are only actually read when necessary.
+The following code opens the multidimensional demo file included in the package and iterates through the first 3 frames. Note in the first lines, we tell the reader which axis to iterate over and which axes to include in one frame. Also we select the first channel for reading.
 
     from pims import ND2_Reader
     with ND2_Reader('cluster.nd2') as frames:
