@@ -16,7 +16,7 @@ except ImportError:
 setup_parameters = dict(
     name="pims_nd2",
     version="1.0",
-    description="ND2SDK wrapper for PIMS",
+    description="An image reader for nd2 (NIS Elements) multidimensional images",
     author="Casper van der Wel",
     install_requires=['pims>=0.3'],
     author_email="caspervdw@gmail.com",
