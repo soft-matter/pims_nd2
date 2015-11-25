@@ -1,25 +1,39 @@
-pims_nd2
-========
+pims_nd2 : A reader for Nikon .ND2
+==================================
+[![build status](https://travis-ci.org/soft-matter/pims_nd2.png?branch=master)](https://travis-ci.org/soft-matter/pims_nd2)
 
-This package lets [pims](https://github.com/soft-matter/pims) interface with the [ND2SDK](http://www.nd2sdk.com) for fast reading of Nikon *.nd2 files.
+This package contains a fast reader for Nikon *.nd2 files. Because the reader is based on [Nikon binaries](http://www.nd2sdk.com), this reader is also compatible with older versions of *.nd2 files. The reader is written in the [pims](https://github.com/soft-matter/pims) framework, enabling easy access to multidimensional files, lazy slicing, and nice IPython representation.
 
-This is implemented on Windows, Linux and OSX systems.
+Installation
+------------
+
+pims_nd2 is implemented on Windows, Linux and OSX systems. To obtain the latest stable version, install via PyPi:
+
+    pip install pims_nd2
+
+The ND2 SDK binaries are included in the package and will be copied into the `pims_nd2` package folder.
 
 Dependencies
 ------------
 
-This reader is based on `pims.FramesSequenceND`, which is available from version 0.3. Apart from [pims](https://github.com/soft-matter/pims) there are no extra dependencies. The required c libraries are included and will be added to the PATH variable at runtime.
+This reader is based on `pims.FramesSequenceND`, which is available from pims version 0.3.0. Apart from [pims](https://github.com/soft-matter/pims) there are no extra dependencies.
 
 Examples
 --------
 
-The following code opens the demo file included in the package and iterates through the first 3 frames. Note that frames are only read when necessary.
+The following code opens a movie file and displays a frame. Frames are only actually read when necessary.
 
-    from pims_nd2 import ND2_Reader
+    from pims import ND2_Reader
+    frames = ND2_Reader('some_movie.nd2')
+    frames[82]  # display frame 82
+
+The following code opens the multidimensional demo file included in the package and iterates through the first 3 frames. Note in the first lines, we tell the reader which axis to iterate over and which axes to include in one frame. Also we select the first channel for reading.
+
+    from pims import ND2_Reader
     with ND2_Reader('cluster.nd2') as frames:
-		frames.iter_axes = 't'
-		frames.bundle_axes = 'zyx'
-		frames.default_coords['c'] = 1
+		frames.iter_axes = 't'  # 't' is the default already
+		frames.bundle_axes = 'zyx'  # when 'z' is available, this will be default
+		frames.default_coords['c'] = 1  # 0 is the default setting
 		for frame in frames[:3]:
 			# do something with 3D frames in channel 1
 
