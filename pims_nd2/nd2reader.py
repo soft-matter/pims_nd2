@@ -128,6 +128,8 @@ class ND2_Reader(FramesSequenceND):
                     self._init_axis('o', dim.uiLoopSize)
             self._lim_experiment = dims
 
+            self._frame_rate =None
+
             # get metadata
             bufmd = h.LIMMETADATA_DESC()
             h.Lim_FileGetMetadata(self._handle, bufmd)
@@ -237,7 +239,8 @@ class ND2_Reader(FramesSequenceND):
                     'projective_mag': bufmd.dProjectiveMag,
                     'image_type': h.image_type[bufmd.uiImageType],
 
-                    'z_home': self._z_home}
+                    'z_home': self._z_home,
+                    'frame_rate': self.frame_rate}
         for i in range(bufmd.uiPlaneCount):
             plane = bufmd.pPlanes[i]
             metadata['plane_{}'.format(i)] = {'components': plane.uiCompCount,
@@ -261,3 +264,12 @@ class ND2_Reader(FramesSequenceND):
     @property
     def pixel_type(self):
         return self._pixel_type
+
+    @property
+    def frame_rate(self):
+        if self._frame_rate is None:
+            length = len(self)
+            t_first = self.get_frame_2D(t=0).metadata['t_ms']
+            t_last = self.get_frame_2D(t=length-1).metadata['t_ms']
+            self._frame_rate = 1000 * (length - 1) / (t_last - t_first)
+        return self._frame_rate

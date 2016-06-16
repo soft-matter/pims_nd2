@@ -2,7 +2,6 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 import six
 import os
-from sys import platform
 import unittest
 import nose
 import numpy as np
@@ -146,6 +145,9 @@ class TestND2(_image_series, _image_stack, _image_multichannel,
         time = self.v.metadata['time_start_utc']
         assert_equal((time.year, time.month, time.day, time.hour, time.minute,
                       time.second), (2014, 6, 18, 13, 55, 23))
+
+    def test_frame_rate(self):
+        assert_allclose(self.v.frame_rate, 0.094, rtol=0.01)
 
     def test_metadata_framewise(self):
         self.v.bundle_axes = 'yx'
