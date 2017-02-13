@@ -116,7 +116,11 @@ class ND2_Reader(FramesSequenceND):
                 dim = dims.pAllocatedLevels[i]
                 dimtype = h.LIMLOOP[dim.uiExpType]
                 if dimtype == 'LIMLOOP_TIME':
-                    self._init_axis('t', dim.uiLoopSize)
+                    if attr.uiSequenceCount > 1 and dim.uiLoopSize == 0:
+                        # For FRAP experiments, number of timesteps = uiSequenceCount
+                        self._init_axis('t', attr.uiSequenceCount)
+                    else:
+                        self._init_axis('t', dim.uiLoopSize)
                 elif dimtype == 'LIMLOOP_MULTIPOINT':
                     self._init_axis('m', dim.uiLoopSize)
                     self.default_coords['m'] = series
@@ -128,7 +132,7 @@ class ND2_Reader(FramesSequenceND):
                     self._init_axis('o', dim.uiLoopSize)
             self._lim_experiment = dims
 
-            self._frame_rate =None
+            self._frame_rate = None
 
             # get metadata
             bufmd = h.LIMMETADATA_DESC()
