@@ -19,8 +19,7 @@ elif platform == "win32":
        dlldir = os.path.join(os.path.dirname(__file__), 'ND2SDK', 'win', 'x64')
     else:
        raise OSError("The bitsize does not equal 32 or 64.")
-    os.environ["PATH"] += os.pathsep + os.path.join(dlldir)
-    nd2 = cdll.LoadLibrary('v6_w32_nd2ReadSDK.dll')
+    nd2 = cdll.LoadLibrary(os.path.join(dlldir, 'v6_w32_nd2ReadSDK.dll'))
 
 
 def jdn_to_datetime_local(jdn):
