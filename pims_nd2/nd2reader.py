@@ -271,7 +271,7 @@ class ND2_Reader(FramesSequenceND):
 
     @property
     def frame_rate(self):
-        if self._frame_rate is None:
+        if self._frame_rate is None and len(self) > 1:
             length = len(self)
             t_first = self.get_frame_2D(t=0).metadata['t_ms']
             t_last = self.get_frame_2D(t=length-1).metadata['t_ms']
