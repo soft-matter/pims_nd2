@@ -15,13 +15,12 @@ except ImportError:
 
 setup_parameters = dict(
     name="pims_nd2",
-    version="1.0",
+    version="1.1",
     description="An image reader for nd2 (NIS Elements) multidimensional images",
     author="Casper van der Wel",
     install_requires=['pims>=0.3'],
     author_email="caspervdw@gmail.com",
     url="https://github.com/soft-matter/pims_nd2",
-    download_url="https://github.com/soft-matter/pims_nd2/tarball/1.0",
     packages=['pims_nd2'],
     include_package_data=True,
     classifiers=["Development Status :: 5 - Production/Stable",
