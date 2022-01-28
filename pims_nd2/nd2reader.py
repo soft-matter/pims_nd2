@@ -80,6 +80,7 @@ class ND2_Reader(FramesSequenceND):
     class_priority = 20
 
     def __init__(self, filename, series=0, channel=0):
+        super().__init__() #Initialize superclass FramesSequenceND
         if not os.path.isfile(filename):
             raise IOError('The file "{}" does not exist.'.format(filename))
         self.filename = str(filename)
